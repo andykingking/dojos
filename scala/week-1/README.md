@@ -43,6 +43,7 @@ Inmates #1, #2, #4 are connected to each other (1--2--4) so they lies in a singl
 
 ## Notes
 
+* Gross and inelegant. How can I do this better?
 * I didn't do any stretch activities this week as I allowed myself time to look into Scala.
 * Parameterised testing in Scala looks ugly. Is there a better way?
 * Where are other sample inputs and outputs? 
