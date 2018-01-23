@@ -24,7 +24,7 @@ For the given arrangement, print the minimal cost which can be incurred while tr
 P ≠ Q
 ```
 
-###Sample Input
+### Sample Input
 ```
 4
 2
