@@ -38,7 +38,7 @@ P ≠ Q
 ```
 
 ### Explanation 
-Inmates #1, #2, #4 are connected to each other (1--2--4) so they lies in a single group. So a bus of cost 2 (with capacity 22 = 4) is required to carry them. Inmate #3 is not handcuffed with anyother. So he can be transported in a bus of cost 1 (with capacity 12 = 1).
+Inmates #1, #2, #4 are connected to each other (1--2--4) so they lies in a single group. So a bus of cost 2 (with capacity 2^2 = 4) is required to carry them. Inmate #3 is not handcuffed with anyother. So he can be transported in a bus of cost 1 (with capacity 1^2 = 1).
 
 
 ## Notes
