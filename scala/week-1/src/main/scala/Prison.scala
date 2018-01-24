@@ -1,28 +1,22 @@
 object Prison {
 
-  var prisoners: Set[Set[Int]] = Set()
-
-  def addAllPrisoners(numberOfInmates: Int): Unit = {
-    for (prisoner <- 1.to(numberOfInmates)) {
-      prisoners = prisoners + Set(prisoner)
-    }
+  def addAllPrisoners(numberOfInmates: Int): Set[Set[Int]] = {
+    Range(1, numberOfInmates + 1).map(inmate => Set(inmate)).toSet
   }
 
-  def chainPrisoners(prisonersToChain: (Int, Int)): Unit = {
+  def chainPrisoners(prisoners: Set[Set[Int]], prisonersToChain: (Int, Int)): Set[Set[Int]] = {
     val (leftPrisoner, rightPrisoner) = prisonersToChain
     val leftPrisonerSet: Set[Int] = prisoners.find({ prisonerSet => prisonerSet.contains(leftPrisoner) }).get
     val rightPrisonerSet: Set[Int] = prisoners.find({ prisonerSet => prisonerSet.contains(rightPrisoner) }).get
 
     if (leftPrisonerSet != rightPrisonerSet) {
-      prisoners = prisoners - (leftPrisonerSet, rightPrisonerSet)
-      prisoners = prisoners + (leftPrisonerSet ++ rightPrisonerSet)
+      return prisoners - (leftPrisonerSet, rightPrisonerSet) + (leftPrisonerSet ++ rightPrisonerSet)
     }
+    prisoners
   }
 
-  def chainedGroupSizes(): List[Int] = {
-    var prisonerGroupSizes: List[Int] = List.empty[Int]
-    prisoners.foreach({ prisonerSet => prisonerGroupSizes = prisonerSet.size :: prisonerGroupSizes })
-    prisonerGroupSizes
+  def chainedGroupSizes(prisoners: Set[Set[Int]]): List[Int] = {
+    prisoners.toList.map(_.size)
   }
 
   def orderBusForChainedGroup(groupSize: Int): Int = {

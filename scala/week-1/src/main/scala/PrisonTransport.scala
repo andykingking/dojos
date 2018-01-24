@@ -1,11 +1,10 @@
 object PrisonTransport extends App {
 
   def run(numberOfInmates: Int, pairsOfInmatesHandcuffed: Int, inmatePairings: List[(Int, Int)]) = {
-    Prison.addAllPrisoners(numberOfInmates)
+    val prisoners = Prison.addAllPrisoners(numberOfInmates)
+    val chainedPrisoners = inmatePairings.foldLeft(prisoners)(Prison.chainPrisoners)
 
-    inmatePairings.foreach({ Prison.chainPrisoners })
-
-    Prison.chainedGroupSizes().map(Prison.orderBusForChainedGroup).sum
+    Prison.chainedGroupSizes(chainedPrisoners).map(Prison.orderBusForChainedGroup).sum
   }
 
 }
