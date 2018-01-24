@@ -6,8 +6,8 @@ object Prison {
 
   def chainPrisoners(prisoners: Set[Set[Int]], prisonersToChain: (Int, Int)): Set[Set[Int]] = {
     val (leftPrisoner, rightPrisoner) = prisonersToChain
-    val leftPrisonerSet: Set[Int] = prisoners.find({ prisonerSet => prisonerSet.contains(leftPrisoner) }).get
-    val rightPrisonerSet: Set[Int] = prisoners.find({ prisonerSet => prisonerSet.contains(rightPrisoner) }).get
+    val leftPrisonerSet = prisoners.find(_.contains(leftPrisoner)).get
+    val rightPrisonerSet = prisoners.find(_.contains(rightPrisoner)).get
 
     if (leftPrisonerSet != rightPrisonerSet) {
       return prisoners - (leftPrisonerSet, rightPrisonerSet) + (leftPrisonerSet ++ rightPrisonerSet)
